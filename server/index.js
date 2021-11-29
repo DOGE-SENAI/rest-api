@@ -35,14 +35,24 @@ app.post('/livro/add', (req, res) => {
     db.query("INSERT INTO livros (nome, autor, ano, imagem) VALUES (?, ?, ?, ?);",
         [nome, autor, ano, img],
         (err, result) => {
-            if (err) console.log(err);
+            if (err) {
+                console.log(err);
+            }else {
+                res.send(result);
+            }
         })
 })
 
 app.delete('/livro/delete/:id', (req, res) => {
     const id = req.params.id;
 
-    db.query("DELETE FROM livros WHERE id = ?", id);
+    db.query("DELETE FROM livros WHERE id = ?", id, (err, result) => {
+        if (err) {
+            console.log(err);
+        }else {
+            res.send(result);
+        }
+    });
 })
 
 app.listen(3001, () => {

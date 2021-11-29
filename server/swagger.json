@@ -60,7 +60,7 @@
                 }
             }
         },
-        "livro/remove/{id}": {
+        "/livro/delete/{id}": {
             "delete": {
                 "summary": "Deleta um livro pelo ID",
                 "description": "Deleta um livro pelo ID",
@@ -71,8 +71,7 @@
                         "in": "path",
                         "description": "ID do livro à ser apagado",
                         "schema": {
-                            "type": "number",
-                            "minimum": 1
+                            "type": "string"
                         },
                         "required": true
                     }
