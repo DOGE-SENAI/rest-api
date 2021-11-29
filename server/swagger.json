@@ -1,0 +1,109 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API de Livros",
+        "description": "Essa API tem como objetivo uma manipulação de dados sobre livros",
+        "contact": {
+            "email": "arrozdoce@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3001/",
+            "description": "API de Livros"
+        }
+    ],
+    "paths": {
+        "/livro/add": {
+            "post": {
+                "summary": "Cadastra um livro",
+                "description": "Rota responsável por cadastrar um novo livro no banco de dados",
+                "tags": [
+                    "Books"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Book"
+                            },
+                            "example": {
+                                "book": {
+                                    "value": {
+                                        "nome": "A menina que roubava livros",
+                                        "autor": "Markus Zusak",
+                                        "ano": "2004",
+                                        "img": "https://lojasaraiva.vteximg.com.br/arquivos/ids/12100879-287-426/1006788139.jpg?v=637142218101470000"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/livros": {
+            "get": {
+                "description": "Retorna todos os livros. Não é necessário parâmetros.",
+                "summary": "Retorna todos os livros",
+                "tags": ["Books"],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "livro/remove/{id}": {
+            "delete": {
+                "summary": "Deleta um livro pelo ID",
+                "description": "Deleta um livro pelo ID",
+                "tags": ["Books"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do livro à ser apagado",
+                        "schema": {
+                            "type": "number",
+                            "minimum": 1
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Book": {
+                "type": "object",
+                "properties": {
+                    "nome": {
+                        "type": "string"
+                    },
+                    "autor": {
+                        "type": "string"
+                    },
+                    "ano": {
+                        "type": "string"
+                    },
+                    "img": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
