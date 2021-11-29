@@ -29,14 +29,10 @@
                                 "$ref": "#/components/schemas/Book"
                             },
                             "example": {
-                                "book": {
-                                    "value": {
-                                        "nome": "A menina que roubava livros",
-                                        "autor": "Markus Zusak",
-                                        "ano": "2004",
-                                        "img": "https://lojasaraiva.vteximg.com.br/arquivos/ids/12100879-287-426/1006788139.jpg?v=637142218101470000"
-                                    }
-                                }
+                                "nome": "A menina que roubava livros",
+                                "autor": "Markus Zusak",
+                                "ano": "2004",
+                                "img": "https://lojasaraiva.vteximg.com.br/arquivos/ids/12100879-287-426/1006788139.jpg?v=637142218101470000"
                             }
                         }
                     }
@@ -52,7 +48,9 @@
             "get": {
                 "description": "Retorna todos os livros. Não é necessário parâmetros.",
                 "summary": "Retorna todos os livros",
-                "tags": ["Books"],
+                "tags": [
+                    "Books"
+                ],
                 "responses": {
                     "200": {
                         "description": "OK"
@@ -64,7 +62,9 @@
             "delete": {
                 "summary": "Deleta um livro pelo ID",
                 "description": "Deleta um livro pelo ID",
-                "tags": ["Books"],
+                "tags": [
+                    "Books"
+                ],
                 "parameters": [
                     {
                         "name": "id",
